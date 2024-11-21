@@ -1,0 +1,679 @@
+\documentclass[10pt]{article}
+\usepackage{graphicx} % Required for inserting images
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{xcolor}
+\usepackage{cancel}
+\definecolor{Blue}{rgb}{0.0, 0.0, 1.0}  
+\definecolor{DarkBlue}{rgb}{0.0, 0.0, 0.55}  
+\definecolor{DarkGreen}{rgb}{0.0,0.5,0.0}
+\definecolor{Red}{rgb}{255, 0, 0}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx,multirow, booktabs, subfig}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{subcaption}
+\usepackage{titlesec}
+\usepackage[letterpaper,left=0.5in, right=.5in, top=0.5in, bottom=0.5in]{geometry}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\usepackage{tcolorbox} 
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{mdframed}
+\usepackage{relsize}
+\title{\LARGE{Mecánica Cuántica}}
+\author{%
+    Integrantes: Angel Enrique Moreno Ortiz,
+    Abraham Hazael Cancino Morales, \\
+    Omar Alberto Lara Cervante,
+    Gildardo Jair Zepeda Balderas, Fidel Oswaldo Silva Ricardo \\
+    Guillermo Armando Zamora Flores, 
+    Yosvan Hernández Millán}
+\date{Septiembre 2024}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Problema 4}
+
+\medskip
+\begin{tcolorbox}[colback=gray!10, colframe=black, title=Problem 4]
+
+Use Equations \ref{Ecuación 1}, \ref{Ecuación 2}, and \ref{Ecuación 3}, to construct $Y_{0}^{0}$ and $Y_{2}^{1}$. Check
+that they are normalized and orthogonal.
+
+\begin{equation}
+    P_{l}^{m}(x)=(-1)^{m}(1-x^{2})^{m/2}\bigg(\frac{d}{dx}\bigg)^{m}P_{l}(x)
+    \label{Ecuación 1}
+\end{equation}
+
+\begin{equation}
+    P_{l}(x)=\frac{1}{2^{l}l!}\bigg(\frac{d}{dx} \bigg)^{l}(x^{2}-1)^{l}
+    \label{Ecuación 2}
+\end{equation}
+
+\begin{equation}
+    Y_{l}^{m}(\theta,\phi)=\sqrt{\frac{(2l+1)}{4\pi}\frac{(l-m)!}{(l+m)!}}e^{im\phi}P_{l}^{m}(cos\theta)
+    \label{Ecuación 3}
+\end{equation}
+
+
+\end{tcolorbox}
+\medskip
+
+\Large{\textit{\textbf{Solución:}}}
+Usando la formula $Y_l^m(\theta,\phi)=\sqrt{\frac{(2l+1)}{4\pi}\frac{(l-m)!}{(l+m)!}}e^{im\phi}P_l^m(cos\theta)$
+
+
+\begin{center}
+    $Y_0^0(\theta,\phi)= \sqrt{\frac{(2\cdot 0+1)}{4\pi}\frac{(0-0)!}{(0+0)!}}e^{i\cdot 0\phi}P_0^0(cos\theta)$
+
+    $P_0^0(x)=(-1)^0(1-x^2)^{0/2}(\frac{d}{dx})^0P_0(x)$
+
+    $P_0(x)=\frac{1}{2^0\cdot 0!}(\frac{d}{dx})^0(x^2-1)^0=1 \Rightarrow P_0^0=1\cdot 1\cdot 1=1$
+
+    $Y_0^0(\theta,\phi)=\sqrt{\frac{1}{4\pi}\cdot 1}\cdot1\cdot1=\sqrt{\frac{1}{4\pi}}$
+
+\end{center}
+
+Verificamos que esté normalizada
+
+\begin{center}
+    $\int_0^{\pi}\int_0^{2\pi}(\sqrt{\frac{1}{4\pi}}\sqrt{\frac{1}{4\pi}}sen\theta) d\theta d\phi=\frac{1}{4\pi}\int_0^{\pi}\int_0^{2\pi}sen\theta d\theta d\phi=\frac{4\pi}{4\pi}=1$
+\end{center}
+
+Para el siguiente usamos la misma formula 
+
+\begin{center}
+    $Y_2^1(\theta,\phi)=\sqrt{\frac{(2\cdot 2+1)}{4\pi}\frac{(2-1)!}{(2+1)!}}e^{i\phi}P_2^1(cos\theta)$
+
+    $P_2^1(x)=(-1)^1(1-x^2)^{1/2}(\frac{d}{dx})P_2(x)$
+
+    $P_2(x)=\frac{1}{2^2\cdot2!}(\frac{d}{dx})^2(x^2-1)^2=\frac{1}{2}(3x^2-1)\Rightarrow P_2^1(x)=-(1-x^2)^{1/2}\frac{d}{dx}\frac{1}{2}(3x^2-1)=-3x\sqrt{1-x^2}$
+
+    $Y_2^1(\theta,\phi)=\sqrt{\frac{5}{4\pi}\frac{1}{6}}e^{i\phi}(-3cos\theta\sqrt{1-cos^2\theta})=-\sqrt{\frac{15}{8\pi}}e^{i\phi}cos\theta sen\theta$
+\end{center}
+
+Verificamos que este normalizada
+
+\begin{center}
+    $\int_0^{\pi}\int_0^{2\pi}(-\sqrt{\frac{15}{8\pi}}e^{-i\phi}cos\theta sen\theta)(-\sqrt{\frac{15}{8\pi}}e^{i\phi}cos\theta sen\theta)sen\theta d\theta d\phi$
+
+    $\frac{15}{8\pi}\int_0^{\pi}\int_0^{2\pi}sen^3\theta cos^2\theta d\phi d\theta=\frac{15}{8\pi}2\pi\int_0^{\pi}sen^3\theta cos^2\theta d\theta$
+
+    $\frac{15}{4}\int_0^{\pi}sen^3\theta(1-sen^2\theta)d\theta=\frac{15}{4}(\int_0^{\pi}sen^3\theta d\theta-\int_0^{\pi}sen^5\theta d\theta)$
+
+    $\frac{15}{4}(\frac{cos^3\theta}{3}-cos\theta+\frac{5cos^5\theta}{5}-\frac{2cos^3\theta}{3}+cos\theta)|_0^{\pi}=\frac{15}{5}\frac{4}{15}=1$
+\end{center}
+
+Ahora verificamos que sean ortogonales entre si
+
+\begin{center}
+    $-\int_0^{\pi}\int_0^{2\pi}(\sqrt{\frac{1}{4\pi}}\sqrt{\frac{15}{8\pi}}e^{i\phi}cos\theta sen\theta sen\theta) d\theta d\phi=-\sqrt{\frac{15}{32\pi^2}}\int_0^{2\pi}e^{i\phi}d\phi \int_0^\pi sen^2\theta cos\theta d\theta $
+
+    $-\sqrt{\frac{15}{32\pi^2}}(-ie^{i\phi})|_0^{2\pi}(\frac{sen^3\theta}{3})|_0^{\pi}= -\sqrt{\frac{15}{32\pi^2}} \cdot0\cdot0= 0$
+\end{center}
+
+Lo que demuestra que son ortogonales entre si
+\medskip
+
+\section{Problema 5}
+
+\medskip
+\begin{tcolorbox}[colback=gray!10, colframe=black, title=Problem 5]
+
+Show that 
+$$\Theta(\theta)=Aln[tan(\theta/2)]$$
+satisfies the $\theta$ equation (Equation \ref{Ecuación 4}), for . This is the unacceptable
+“second solution”—what’s wrong with it?
+
+\begin{equation}
+    sin\theta\frac{d}{d\theta}\bigg( sin\theta\frac{d\Theta}{d\theta} \bigg) + [l(l+1)sin^{2}\theta-m^{2}]\Theta=0
+    \label{Ecuación 4}
+\end{equation}
+
+\end{tcolorbox}
+\medskip
+
+
+\Large{\textit{\textbf{Solución:}}}
+La ecuación 4 para $l=m=0$ es 
+\begin{center}
+    $sen\theta\frac{d}{d\theta}(sen\theta\frac{d\Theta}{d\theta})+(0\cdot(0+1)sen^2\theta-0^2)\Theta=sen\theta\frac{d}{d\theta}(sen\theta\frac{d\Theta}{d\theta})$
+
+    $\frac{d\Theta}{d\theta}=A\frac{sec^2(\theta/2)}{2tan(\theta/2)}=\frac{A}{2}\frac{1}{cos^2(\theta/2)}\frac{cos(\theta/2)}{sen(\theta/2)}$
+
+    $=\frac{A}{2}\frac{1}{cos(\theta/2)sen(\theta/2)}=\frac{A}{2\frac{sen\theta}{2}}=\frac{A}{sen\theta}$
+
+    $sen\theta\frac{d}{d\theta}(sen\theta\frac{d\Theta}{d\theta})=sen\theta\frac{d}{d\theta}(sen\theta\frac{A}{sen\theta})=sen\theta\frac{dA}{d\theta}=0$
+\end{center}
+
+Lo que cumple la ecuación 4, sin embargo podemos ver que $\Theta$ diverge tanto en 0 como en $\pi$, por lo que no es una solución aceptable
+
+\medskip
+
+\section{Problema 6}
+
+\medskip
+\begin{tcolorbox}[colback=gray!10, colframe=black, title=Problem 6]
+
+Using Equation \ref{Ecuación 5} and footnote 5, show that
+
+$$
+Y_{l}^{-m}(\theta,\phi)= (-1)^{m} \left(  Y_{l}^{m}\right)^{*} 
+$$
+
+\begin{equation}
+    Y_{l}^{m}(\theta,\phi)=\sqrt{\frac{(2l+1)}{4\pi}\frac{(l-m)!}{(l+m)!}}e^{im\phi}P_{l}^{m}(cos\theta)
+    \label{Ecuación 5}
+\end{equation}
+
+\begin{equation}
+    P_{l}^{m}(x)=(-1)^{m}(1-x^{2})^{m/2}\bigg(\frac{d}{dx}\bigg)^{m}P_{l}(x)
+    \label{Ecuación 6}
+\end{equation}
+
+Footnote 5 :
+Some books (including earlier editions of this one) do not include the factor $(-1)^{m}$ in the definition of $P_{l}^{m}$. Equation \ref{Ecuación 6} assumes that $m\geq  0$
+; for negative values we define $$P_{l}^{-m}(x)=(-1)^{m}\frac{(l-m)!}{(l+m)!}P_{l}^{m}(x)$$
+
+\end{tcolorbox}
+\medskip
+
+\Large{\textit{\textbf{Solución:}}}
+
+\medskip
+
+La ecuación (\ref{Ecuación 5}) nos dice que :
+
+$$
+Y_{l}^{m}(\theta,\phi)=\sqrt{
+\frac{(2l+1)}{4\pi}\frac{(l-m)!}{(l+m)!}}e^{im\phi}P_{l}^{m}(cos\theta),
+$$
+
+y el pie de nota 5 nos dice que para valores negativos ($-m$) tenemos:
+\begin{equation}
+    P_{l}^{-m}(x)=(-1)^{m}\frac{(l-m)!}{(l+m)!}P_{l}^{m}(x).
+    \label{eq6.1}
+\end{equation}
+
+
+Veamos la ecuación (\ref{Ecuación 5}) para valores ($-m$):
+$$
+Y_{l}^{-m}(\theta,\phi)=\sqrt{
+\frac{(2l+1)}{4\pi}\frac{(l-(-m)!}{(l+(-m)!}}e^{
+    i(-m)\phi}{\color{Red} P_{l}^{-m}(cos\theta)},
+$$
+pero de acuerdo a la ecuación (\ref{eq6.1}) tenemos que:
+$$
+\color{Red} P_{l}^{-m}(cos\theta)=
+(-1)^{m}\frac{(l-m)!}{(l+m)!}P_{l}^{m}(cos\theta).
+$$
+Por lo que:
+$$
+Y_{l}^{-m}(\theta,\phi)=\sqrt{
+\frac{(2l+1)}{4\pi}\frac{(l+m)!}{(l-m)!}}e^{
+    i(-m)\phi}\color{Red} 
+    {(-1)^{m}\frac{(l-m)!}{(l+m)!}P_{l}^{m}(cos\theta)},
+$$
+
+$$
+\Longrightarrow Y_{l}^{-m}(\theta,\phi)=(-1)^{m}\sqrt{
+    \frac{(2l+1)}{4\pi}\frac{(l+m)!}{(l-m)!}}e^{
+    -im\phi}\sqrt{\frac{((l-m)!)^{2}}{((l+m)!)^{2}}}P_{l}^{m}(cos\theta)
+$$
+$$
+\Longrightarrow Y_{l}^{-m}(\theta,\phi)=(-1)^{m}\sqrt{
+    \frac{(2l+1)}{4\pi}\frac{(l+m)!}{(l-m)!}\frac{
+        ((l-m)!)^{2}}{((l+m)!)^{2}}}e^{
+        -im\phi}P_{l}^{m}(cos\theta)
+$$
+$$
+\Longrightarrow Y_{l}^{-m}(\theta,\phi)=(-1)^{m}\sqrt{
+    \frac{(2l+1)}{4\pi}\frac{\cancel{(l+m)!}}{\cancel{(l-m)!}}
+    \frac{\cancel{(l-m)!}(l-m)!}{\cancel{(l+m)!}(l+m)!}}e^{
+        -im\phi}P_{l}^{m}(cos\theta)
+$$
+\begin{equation}
+    \Longrightarrow Y_{l}^{-m}(\theta,\phi)=(-1)^{m}\sqrt{
+    \frac{(2l+1)}{4\pi}
+    \frac{(l-m)!}{(l+m)!}}e^{
+        -im\phi}P_{l}^{m}(cos\theta),
+    \label{eq6.2}
+\end{equation}
+
+Ahora notemos lo siguiente:
+$$
+(e^{im\phi})^{*}=e^{-im\phi}
+$$
+por otra parte, $P_{l}^{m}(cos\theta)$ es una función real por lo que:
+$$
+(P_{l}^{m}(cos\theta))^{*}=P_{l}^{m}(cos\theta),
+$$
+y como sabemos que l es un entero no negativo entonces tenemos que $\frac{(2l+1)}{4\pi}$ es un número real
+y $\frac{(l-m)!}{(l+m)!}$ es el cociente de dos factoriales, los cuales son siempre números reales.
+Por lo que si:
+$$
+Y_{l}^{m}=\sqrt{
+    \frac{(2l+1)}{4\pi}\frac{(l-m)!}{(l+m)!}}e^{im\phi}P_{l}^{m}(cos\theta)
+    \Longrightarrow \left(  Y_{l}^{m}\right)^{*}=\sqrt{
+    \frac{(2l+1)}{4\pi}\frac{(l-m)!}{(l+m)!}}e^{-im\phi}P_{l}^{m}(cos\theta)
+$$
+Sustituimos esto en la ecuación (\ref{eq6.2}):
+$$
+Y_{l}^{-m}(\theta,\phi)=(-1)^{m}{\color{DarkGreen}{\sqrt{
+    \frac{(2l+1)}{4\pi}
+    \frac{(l-m)!}{(l+m)!}}e^{
+        -im\phi}P_{l}^{m}(cos\theta)}} =(-1)^{m}{\color{DarkGreen} \left(  Y_{l}^{m}\right)^{*} }
+$$
+por lo tanto concluimos que:
+\[
+\boxed{
+Y_{l}^{-m}(\theta, \phi) = (-1)^{m} \left( Y_{l}^{m} \right)^{*}
+}
+\]
+
+
+\medskip
+
+\section{Problema 7}
+
+\medskip
+\begin{tcolorbox}[colback=gray!10, colframe=black, title=Problem 7]
+
+ Using Equation \ref{Ecuación 7}, find $Y_{l}^{l}(\theta,\phi)$ and $Y_{3}^{2}(\theta,\phi)$. (You can take $P_{3}^{2}$
+from Table 4.2, but you’ll have to work $P_{l}^{l}$ out from Equations \ref{Ecuación 8} and \ref{Ecuación 9}.)
+Check that they satisfy the angular equation (Equation \ref{Ecuacion 10}), for the appropriate
+values of $l$ and $m$.
+
+\begin{equation}
+    Y_{l}^{m}(\theta,\phi)=\sqrt{\frac{(2l+1)}{4\pi}\frac{(l-m)!}{(l+m)!}}e^{im\phi}P_{l}^{m}(cos\theta)
+    \label{Ecuación 7}
+\end{equation}
+
+\begin{equation}
+    P_{l}^{m}(x)=(-1)^{m}(1-x^{2})^{m/2}\bigg(\frac{d}{dx}\bigg)^{m}P_{l}(x)
+    \label{Ecuación 8}
+\end{equation}
+
+\begin{equation}
+    P_{l}(x)=\frac{1}{2^{l}l!}\bigg(\frac{d}{dx} \bigg)^{l}(x^{2}-1)^{l}
+    \label{Ecuación 9}
+\end{equation}
+
+\begin{equation}
+    sin\theta\frac{\partial}{\partial \theta}\bigg( sin\theta \frac{\partial Y}{\partial \theta} \bigg) + \frac{\partial^{2} Y}{\partial\phi^{2}}= -l(l+1)sin^{2}\theta Y
+    \label{Ecuacion 10}
+\end{equation}
+
+\end{tcolorbox}
+\medskip
+
+
+\Large{\textit{\textbf{Solución:}}}
+
+\medskip
+
+Usando la ecuación \ref{Ecuación 7}
+
+$$Y_{l}^{l}(\theta,\phi)=\sqrt{\frac{(2l+1)}{4\pi}\frac{(l-l)!}{(l+l)!}}e^{il\phi}P_{l}^{l}(cos\theta)=\sqrt{\frac{(2l+1)}{4\pi(2l)!}}e^{il\phi}P_{l}^{l}(cos\theta)$$
+
+En donde al usar la Ecuación \ref{Ecuación 8}
+
+$$P_{l}^{l}(x)=(-1)^{l}(1-x^{2})^{l/2}\bigg(\frac{d}{dx} \bigg)^{l}P_{l}(x)=(-1)^{l}(1-x^{2})^{l/2}\bigg(\frac{d}{dx} \bigg)^{l}\bigg[\frac{1}{2^{l}l!}\bigg(\frac{d}{dx} \bigg)^{l}(x^{2}-1)^{l}\bigg]$$
+$$P_{l}^{l}(x)=(-1)^{l}(1-x^{2})^{l/2}\frac{1}{2^{l}l!}\bigg(\frac{d}{dx} \bigg)^{2l}\bigg[ (x^{2}-1)^{l} \bigg]$$
+
+Veamos como se comporta esta derivada
+
+\begin{align*}
+    l=0 \text{ ; } \bigg( \frac{d}{dx} \bigg)^{0}(x^{2}-1)^{0}=(2(0))! \\
+    l=1 \text{ ; } \frac{d^{2}}{dx^{2}}(x^{2}-1) = 2=(2(1))! \\
+    l=2 \text{ ; } \frac{d^{4}}{dx^{4}}(x^{2}-1)^{2}=24=(2(2))! \\
+    l=3 \text{ ; } \frac{d^{6}}{dx^{6}}(x^{2}-1)^{3}=720=(2(3))!
+\end{align*}
+
+Así $$\frac{d^{2l}}{dx^{2l}}(x^{2}-1)^{l}=(2l)!$$
+
+Por lo tanto 
+
+$$P_{l}^{l}(x)=(-1)^{l}(1-x^{2})^{l/2}\frac{1}{2^{l}l!}(2l)!$$
+
+Hemos calculado que 
+$$Y_{l}^{l}(\theta,\phi)=\sqrt{\frac{(2l+1)}{4\pi(2l)!}}e^{il\phi}(-1)^{l}(1-cos^{2}\theta)^{l/2}\frac{(2l)!}{2^{l}l!}=\frac{(-1)^{l}}{2^{l}l!}\sqrt{\frac{(2l+1)(2l)!}{4\pi}}e^{il\phi}(sen^{2}\theta)^{l/2}$$
+$$Y_{l}^{l}(\theta,\phi)=\frac{(-1)^{l}}{2^{l}l!}\sqrt{\frac{(2l+1)!}{4\pi}}e^{il\phi}sen^{l}\theta=Be^{il\phi}sen^{l}\theta$$
+En donde $$B=\frac{(-1)^{l}}{2^{l}l!}\sqrt{\frac{(2l+1)!}{4\pi}}$$
+
+Veamos que cumple la ecuación angular, calcularemos las derivadas:
+
+$$\frac{\partial }{\partial \phi}Y_{l}^{l}=Bsen^{l}\theta (il)e^{il\phi} \implies \frac{\partial^{2} }{\partial \phi^{2}}Y_{l}^{l}=(il)^{2}Y_{l}^{l}$$
+
+$$sin\theta \frac{\partial Y_{l}^{l}}{\partial \theta}=lcos\theta sin\theta Be^{il\phi}sen^{l-1}\theta=cos\theta lBe^{il\phi}sen^{l}\theta=lcos\theta Y_{l}^{l}$$
+$$\implies sin\theta \frac{ \partial}{\partial \theta}\bigg( sin\theta \frac{\partial Y_{l}^{l}}{\partial \theta} \bigg)=sin\theta\bigg[lcos\theta  \frac{\partial Y_{l}^{l}}{\partial \theta}-lY_{1}^{1}sin\theta \bigg]=\bigg[lcos\theta sin \theta \frac{\partial Y_{l}^{l}}{\partial \theta}-lY_{1}^{1}sin^{2}\theta \bigg]$$
+$$\implies sin\theta \frac{\partial}{\partial \theta}\bigg( sin\theta \frac{\partial Y_{1}^{1}}{\partial \theta} \bigg)=\bigg[ l^{2}cos^{2}\theta -l sin^{2}\theta\bigg]Y_{1}^{1}$$
+
+Sustituimos los valores en la ecuación: 
+
+$$\bigg[ l^{2}cos^{2}\theta -l sin^{2}\theta\bigg]Y_{l}^{l}-l^{2}Y_{l}^{l}=Y_{l}^{l}\bigg[ l^{2}(cos^{2}\theta -1)-lsin^{2}\theta \bigg]$$
+$$Y_{1}^{1}\bigg[ -l^{2}sin^{2}\theta -lsin^{2}\theta \bigg]=-Y_{1}^{1}sin^{2}\theta (l^2+l)=-l(l+1)sin^{2}\theta Y_{1}^{1}$$
+
+Por lo tanto, vemos que sí es solución de la ecuación angular
+
+$$    sin\theta\frac{\partial}{\partial \theta}\bigg( sin\theta \frac{\partial Y_{1}^{1}}{\partial \theta} \bigg) + \frac{\partial^{2} Y_{1}^{1}}{\partial\phi^{2}}= -l(l+1)sin^{2}\theta Y_{1}^{1}$$
+
+
+Ahora, vamos a calcular $Y_{3}^{2}(\theta, \phi)$ y veremos que se satisfaga la ecuación angular.
+
+
+$$Y_{3}^{2}(\theta, \phi)=  \sqrt{\frac{(2(3)+1)}{4\pi}\frac{(3-2)!}{(3+2)!}}e^{i2\phi}P_{3}^{2}(cos\theta)=\sqrt{\frac{7}{4\pi}\frac{1}{5!}}e^{i2\phi}P_{3}^{2}(cos\theta)$$
+
+$$Y_{3}^{2}(\theta, \phi)=\sqrt{\frac{7}{480\pi}}e^{i2\phi}P_{3}^{2}(cos\theta)$$
+
+Calculamos $P_{3}^{2}(cos\theta)$
+
+$$P_{3}^{2}(cos\theta)=(-1)^{2}(1-cos^{2}\theta)^{2/2}\frac{d^{2}}{d\theta^{2}}P_{3}(cos\theta)=(1-cos^{2}\theta)\frac{d^{2}}{d\theta^{2}}[P_{3}(cos\theta)]$$
+
+En donde $P_{3}(cos\theta)$ se calcula como sigue:
+
+$$P_{3}(cos\theta)=\frac{1}{2^{3}3!}\frac{d^{3}}{d\theta^{3}}(cos^{2}\theta-1)^{3}=\frac{1}{2^{3}3!}\frac{d^{3}}{d\theta^{3}}((1-sen^{2}\theta)-1)^{3}=-\frac{1}{2^{3}3!}\frac{d^{3}}{d\theta^{3}}sen^{6}\theta$$
+$$\implies P_{3}(cos\theta)=-\frac{1}{2^{3}3!}\frac{d^{2}}{d\theta^{2}}(6sen^{5}\theta cos\theta)=-\frac{6}{2^{3}3!}\frac{d}{d\theta}(-sen^{6}\theta+5sen^{4}\theta cos^{2}\theta)$$
+$$\implies P_{3}(cos\theta)=-\frac{6}{2^{3}3!}[-6sen^{5}\theta cos\theta +5(4sen^{3}\theta cos^{3}\theta-2cos\theta sen^{5}\theta)]$$
+$$\implies P_{3}(cos\theta)=-\frac{6}{2^{3}3!}[-16sen^{5}\theta cos \theta +20sen^{3}\theta cos^{3}\theta]$$
+$$\implies P_{3}(cos\theta)=-\frac{6}{8(6)}[-16sen^{5}\theta cos \theta +20sen^{3}\theta cos^{3}\theta]=2sen^{5}\theta cos\theta -\frac{10}{4}sen^{3}\theta cos^{3}\theta$$
+\medskip
+
+Así, sustituimos en la siguiente ecuación:
+$$P_{3}^{2}(cos\theta)=(1-cos^{2}\theta)\frac{d^{2}}{d\theta^{2}}[P_{3}(cos\theta)]=sen^{2}\theta \frac{d^{2}}{d\theta^{2}}[2sen^{5}\theta cos\theta -\frac{10}{4}sen^{3}\theta cos^{3}\theta]$$
+$$\implies P_{3}^{2}(cos\theta)=sen^{2}\theta \frac{d}{d\theta}[2(5sen^{4}\theta cos^{2}\theta -sen^{6}\theta)-\frac{10}{4}(3sen^{2}\theta cos^{4}\theta-3sen^{4}\theta cos^{2}\theta)]$$
+$$\implies P_{3}^{2}(cos\theta)=sen^{2}\theta \frac{d}{d\theta}[10sen^{4}\theta cos^{2}\theta -2sen^{6}\theta -\frac{30}{4}sen^{2}\theta cos^{4}\theta+\frac{30}{4}sen^{4}\theta cos^{2}\theta]$$
+$$\implies P_{3}^{2}(cos\theta)=sen^{2}\theta \frac{d}{d\theta}\bigg[\frac{70}{4}sen^{4}\theta cos^{2}\theta -2sen^{6}\theta -\frac{30}{4}sen^{2}\theta cos^{4}\theta \bigg]$$
+$$\implies P_{3}^{2}(cos\theta)=sen^{2}\theta \bigg[ \frac{70}{4}(4sen^{3}cos^{3}\theta -2cos\theta sen^{5}\theta) +12sen^{5}\theta cos\theta $$
+$$-\frac{30}{4}(4cos^{3}\theta sen^{3}\theta-2sen\theta cos^{5}\theta)\bigg]$$
+
+$$P_{3}^{2}(cos\theta)=sen^{2}\theta \bigg[40sen^{3}\theta cos^{3}\theta -23 cos\theta sen^{5}\theta + 15sen\theta cos^{5}\theta \bigg]$$
+$$P_{3}^{2}(cos\theta)=40sen^{5}\theta cos^{3}\theta-23sen^{7}\theta cos\theta +15sen^{3}\theta cos^{5}\theta$$
+
+Así finalmente, el armónico esferico resulta ser: 
+
+$$Y_{3}^{2}(\theta , \phi ) =\sqrt{\frac{7}{480 \pi }}e^{i2\phi} P_{3}^{2}(cos\theta)$$
+$$\implies Y_{3}^{2}(\theta , \phi ) =\sqrt{\frac{7}{480 \pi }}e^{i2\phi}[40sen^{5}\theta cos^{3}\theta-23sen^{7}\theta cos\theta +15sen^{3}\theta cos^{5}\theta] $$
+$$Y_{3}^{2}(\theta, \phi)=B[40sen^{5}\theta cos^{3}\theta-23sen^{7}\theta cos\theta +15sen^{3}\theta cos^{5}\theta]$$
+En donde $$B=\sqrt{\frac{7}{480 \pi }}e^{i2\phi}$$
+
+Ahora, vamos a corroborar que satisface la ecuación de ángulo. 
+
+$$\frac{\partial }{\partial \phi}Y_{3}^{2}=2iY_{3}^{2}$$
+$$\implies \frac{\partial^{2}}{\partial \phi^{2}}Y_{3}^{2}=2i\frac{\partial}{\partial \phi}Y_{3}^{2}=2i(2iY_{3}^{2})=-4Y_{3}^{2}$$
+
+Calculamos la derivada con respecto a $\theta$
+
+$$\frac{\partial}{\partial \theta}Y_{3}^{2}=B[40(5sen^{4}\theta cos^{4}\theta-3cos^{2}\theta sen^{6}\theta )-23(7sen^{6}\theta cos^{2}\theta -sen^{8}\theta )$$
+$$+15(3sen^{2}\theta cos^{6}\theta -5cos^{4}\theta sen^{4}\theta)]$$
+$$\implies \frac{\partial}{\partial \theta}Y_{3}^{2}=B[125sen^{4}\theta cos^{4}\theta-281cos^{2}\theta sen^{6}\theta +23 sen^{8}\theta +45sen^{2}\theta cos^{6}\theta ]$$
+$$\implies \frac{\partial}{\partial \theta}Y_{3}^{2}=B[125sen^{4}\theta cos^{4}\theta-281cos^{2}\theta sen^{6}\theta +23 sen^{8}\theta +45sen^{2}\theta cos^{6}\theta ]$$
+
+Usando que $sen^{2}\theta +cos^{2}\theta = 1\implies cos^{2}\theta = 1-sen^{2}\theta$
+
+$$\implies \frac{\partial}{\partial \theta}Y_{3}^{2}=B[125sen^{4}\theta (cos^{2}\theta)^{2}-281cos^{2}\theta sen^{6}\theta +23 sen^{8}\theta +45sen^{2}\theta (cos^{2}\theta)^{3} ]$$
+$$\implies \frac{\partial}{\partial \theta}Y_{3}^{2}=B[125sen^{4}\theta (1-sen^{2}\theta)^{2}-281(1-sen^{2}\theta) sen^{6}\theta +23 sen^{8}\theta $$
+$$+45sen^{2}\theta (1-sen^{2}\theta)^{3} ]$$
+
+
+$$\implies \frac{\partial}{\partial \theta}Y_{3}^{2}=B[125sen^{4}\theta (1-2sen^{2}\theta+sen^{4}\theta)-281(1-sen^{2}\theta) sen^{6}\theta +23 sen^{8}\theta $$
+$$+45sen^{2}\theta (1-3sen^{2}\theta+3sen^{4}\theta-sen^{6}\theta ) ]$$
+$$ \implies \frac{\partial}{\partial \theta}Y_{3}^{2} = B \big( 45\sin^{2}\theta - 10\sin^{4}\theta - 396\sin^{6}\theta + 384\sin^{8}\theta \big)$$
+$$ \implies sen\theta \frac{\partial}{\partial \theta}Y_{3}^{2} = B \big( 45\sin^{3}\theta - 10\sin^{5}\theta - 396\sin^{7}\theta + 384\sin^{9}\theta \big)$$
+$$ \implies \frac{\partial}{\partial \theta}\bigg(sen\theta \frac{\partial}{\partial \theta}Y_{3}^{2}\bigg) = B \big( 135\sin^{2}\theta - 50\sin^{4}\theta - 2583\sin^{6}\theta + 3456\sin^{8}\theta \big)$$
+$$ \implies sen\theta\frac{\partial}{\partial \theta}\bigg(sen\theta \frac{\partial}{\partial \theta}Y_{3}^{2}\bigg) = B \big( 135\sin^{3}\theta - 50\sin^{5}\theta - 2583\sin^{7}\theta + 3456\sin^{9}\theta \big)$$
+
+Con todo esto, podemos sustituir 
+
+$$sen\theta\frac{\partial}{\partial \theta}\bigg(sen\theta \frac{\partial}{\partial \theta}Y_{3}^{2}\bigg)+\frac{\partial^{2}}{\partial \phi^{2}}Y_{3}^{2}=sen\theta\frac{\partial}{\partial \theta}\bigg(sen\theta \frac{\partial}{\partial \theta}Y_{3}^{2}\bigg)-4Y_{3}^{2}$$
+
+Ahora, como:
+
+$$Y_{3}^{2}=B[40sen^{5}\theta cos^{3}\theta-23sen^{7}\theta cos\theta +15sen^{3}\theta cos^{5}\theta]$$
+$$\implies Y_{3}^{3}= [40sen^{5}\theta cos^{3}\theta-23sen^{7}\theta cos\theta +15sen^{3}\theta cos^{5}\theta]$$
+
+\section{Problema 8}
+
+\medskip
+\begin{tcolorbox}[colback=gray!10, colframe=black, title=Problem 8]
+
+Starting from the Rodrigues formula, derive the orthonormality
+condition for Legendre polynomials:
+
+$$\int_{-1}^{1}P_{l}(x)P_{l^{'}}(x)dx=\bigg( \frac{2}{2l+1} \bigg)\delta_{ll^{'}}$$
+
+Hint: Use integration by parts
+
+\end{tcolorbox}
+\medskip
+
+
+\Large{\textit{\textbf{Solución:}}}
+
+\medskip
+
+\medskip
+
+\section{Problema 9}
+
+\medskip
+\begin{tcolorbox}[colback=gray!10, colframe=black, title=Problem 9]
+
+\begin{enumerate}[label=\alph*)]
+    \item From the definition (Equation \ref{Ecuación 11}), construct $n_{1}(x)$ and $n_{2}(x)$.
+    \item Expand the sines and cosines to obtain approximate formulas for $n_{1}(x)$
+and $n_{2}(x)$, valid when $x << 1$. Confirm that they blow up at the origin.
+\end{enumerate}
+
+\begin{equation}
+    j_{l}(x)=(-x)^{l}\bigg( \frac{1}{x} \frac{d}{dx}\bigg)\frac{sin x}{x} \\
+    \text{   ;   } n_{l}(x)=-(-x)^{l}\bigg( \frac{1}{x}\frac{d}{dx}\bigg)^{l}\frac{cosx}{x}
+    \label{Ecuación 11}
+\end{equation}
+
+\end{tcolorbox}
+\medskip
+
+
+\Large{\textit{\textbf{Solución:}}}
+
+\medskip
+
+\textbf{Inciso a)}
+
+Usando la ecuación \ref{Ecuación 11} calculamos $n_{1}(x)$ 
+
+\begin{align*}
+    n_{1}(x)=-(-x)^{1}\bigg( \frac{1}{x}\frac{d}{dx}\bigg)^{1}\frac{cosx}{x} \\
+    n_{1}(x) = x\frac{1}{x}\frac{d}{dx}\bigg(\frac{cosx}{x}\bigg) = \frac{d}{dx}\bigg(\frac{cosx}{x}\bigg) \\
+    n_{1}(x) = \frac{-xsenx-cosx}{x^{2}}
+\end{align*}
+
+Ahora, calculamos $n_{2}(x)$
+
+\begin{align*}
+    n_{2}(x)=-(-x)^{2}\bigg( \frac{1}{x}\frac{d}{dx}\bigg)^{2}\frac{cosx}{x} \\
+    n_{2}(x) = -x^{2}\frac{1}{x^{2}}\frac{d^{2}}{dx^{2}}\bigg(\frac{cosx}{x}\bigg) = -\frac{d}{dx}\bigg[\frac{d}{dx}\bigg(\frac{cosx}{x}\bigg)\bigg] \\
+    n_{2}(x) = -\frac{d}{dx}\bigg[\frac{-xsenx-cosx}{x^{2}}\bigg] \\
+    n_{2}(x) =-\frac{(-xcosx)x^{2}-2x(-xsenx-cosx)}{x^{4}} \\
+    n_{2}(x)= \frac{x^{3}cosx-2x^{2}senx-2xcosx}{x^{4}} \\
+    n_{2}(x)=\frac{x^{2}cosx-2xsenx-2cosx}{x^{3}}
+\end{align*}
+
+\textbf{Inciso b)}
+
+Sabemos que la expansión del coseno, resulta ser 
+
+$$cos(x)=\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k}}{(2k)!}$$
+
+Así 
+$$\frac{cos(x)}{x}=\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k-1}}{(2k)!}$$
+
+Con esto, podemos calcular $n_{1}(x)$ y $n_{2}(x)$
+
+\begin{align*}
+    n_{1}(x)=-(-x)^{1}\bigg( \frac{1}{x}\frac{d}{dx} \bigg)^{1}\frac{cosx}{x}=\frac{d}{dx}\bigg( \frac{cosx}{x}\bigg)=\frac{d}{dx}\bigg( \sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k-1}}{(2k)!}\bigg) \\
+    n_{1}(x)=\sum_{k=0}^{\infty}(2k-1)\frac{(-1)^{k}x^{2k-2}}{(2k)!} \\
+    n_{2}(x)=-(-x)^{2}\bigg( \frac{1}{x}\frac{d}{dx} \bigg)^{2}\frac{cosx}{x}=-\frac{d^{2}}{dx^{2}}\bigg( \frac{cosx}{x} \bigg)=-\frac{d^{2}}{dx^{2}}\bigg( \sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k-1}}{(2k)!} \bigg) \\
+    n_{2}(x)=\sum_{k=0}^{\infty}(1-2k)(2k-2)\frac{(-1)^{k}x^{2k-3}}{(2k)!}
+\end{align*}
+\medskip
+
+Expandiendo la serie, tenemos lo siguiente: 
+
+\begin{align*}
+    n_{1}(x)\approx (-1)\frac{x^{-2}}{0!}+(1)\frac{(-1)^{1}x^{0}}{2!} + (3)\frac{(-1)^{2}x^{2}}{4!}+(5)\frac{(-1)^{3}x^{4}}{6!}+(7)\frac{(-1)^{4}x^{6}}{8!}\\
+    n_{1}(x) \approx -\frac{1}{x^{2}}-\frac{1}{2}+\frac{3x^{2}}{24}-\frac{5x^{4}}{720}+\frac{7x^{6}}{40320}
+\end{align*}
+
+\begin{align*}
+    n_{2}(x) \approx (1)(-2)\frac{(-1)^{0}x^{-3}}{0!}+(-3)(2)\frac{(-1)^{2}x^{1}}{4!}+(-5)(4)\frac{(-1)^{3}x^{3}}{6!}+(-7)(6)\frac{(-1)^{4}x^{5}}{8!} \\
+    n_{2}(x) \approx -\frac{2}{x^{3}}-\frac{6x}{24}+\frac{20x^{3}}{720}-\frac{42x^{5}}{40320}
+\end{align*}
+
+Puesto que $x<<1$, los términos que van a dominar en la aproximación resultan ser:
+
+\begin{align*}
+    n_{1}(x) \approx -\frac{1}{x^{2}}-\frac{1}{2} \implies lim_{x \to 0} n_{1}(x) = -\infty \\
+    n_{2}(x) \approx -\frac{2}{x^{3}} \implies lim_{x\to 0} n_{2}(x) = -\infty 
+\end{align*}
+
+
+\medskip
+
+\section{Problema 10}
+
+\medskip
+\begin{tcolorbox}[colback=gray!10, colframe=black, title=Problem 10]
+
+\begin{enumerate}[label=\alph*)]
+    \item Check that $Arj_{1}(kr)$ satisfies the radial equation with $V(r)=0$ and $l=1$.
+    \item Determine graphically the allowed energies for the infinite spherical well,
+when $l=1$. Show that for large $N$, $E_{N1}\approx (\hbar^{2}\pi^{2}/2ma^{2})(N+1/2)^{2}$.
+Hint: First show that $j_{1}(x)=0 \implies x = tanx$ . Plot $x$ and $tanx$ on  the
+same graph, and locate the points of intersection.
+
+
+\end{enumerate}
+
+
+\end{tcolorbox}
+\medskip
+
+
+\Large{\textit{\textbf{Solución:}}}
+
+\medskip
+
+
+\textbf{Inciso a)}
+
+
+Tenemos que la función para $l=1$
+$$u_{1}=Arj_{1}(x)=Ar(-x)^{1}\bigg(\frac{1}{x}\frac{d}{dx} \bigg)^{1}\frac{sen(x)}{x}=(-Ar)\frac{cos(x)x-sen(x)}{(x)^{2}}=Ar\frac{sen(x)-xcos(x)}{x^{2}}$$
+
+Tomamos $x=kr$
+
+$$u_{1}=Ar\frac{sen(kr)-krcos(kr)}{(kr)^{2}}=A\bigg[ \frac{sen(kr)}{k^{2}r}-\frac{cos(kr)}{k}\bigg]=\frac{A}{kr}\bigg[ \frac{sen(kr)}{k}-cos(kr)r\bigg]$$
+\medskip
+
+La ecuación radial para $V(r)=0$ es 
+
+$$\frac{d^{2}u_{1}}{dr^{2}}+\bigg[ k^{2}-\frac{l(l+1)}{r^{2}} \bigg]u_{1}=0$$
+
+Calculamos las derivadas 
+
+$$\frac{du_{1}}{dr}=-\frac{A}{kr^{2}}\bigg[ \frac{sen(kr)}{k}-cos(kr)r\bigg]+A\bigg[sen(kr)\bigg]$$
+
+$$\frac{d^{2}u_{1}}{dr^{2}}=-\frac{A}{kr^{2}}\bigg[sen(kr)kr\bigg]+ \frac{2A}{kr^{3}}\bigg[ \frac{sen(kr)}{k}-cos(kr)r\bigg]+Acos(kr)k$$
+
+
+$$\frac{d^{2}u_{1}}{dr^{2}}=\frac{A}{kr}\bigg[-sen(kr)k+k^{2}rcos(kr)\bigg]+ \frac{2A}{kr^{3}}\bigg[ \frac{sen(kr)}{k}-cos(kr)r\bigg]$$
+
+$$\bigg[k^{2}-\frac{l(l+1)}{r^{2}} \bigg]u_{1}=\frac{Ak}{r}\bigg[ \frac{sen(kr)}{k}-cos(kr)r \bigg] -\frac{l(l+1)}{r^{2}} \frac{A}{kr}\bigg[ \frac{sen(kr)}{k}-cos(kr)r \bigg]$$
+
+
+
+Como estamos en el caso en que $l=1$
+
+$$\bigg[k^{2}-\frac{l(l+1)}{r^{2}} \bigg]u_{1}=\frac{A}{kr}\bigg[ sen(kr)k-cos(kr)k^{2}r \bigg] -\frac{2A}{kr^{3}}\bigg[ \frac{sen(kr)}{k}-cos(kr)r \bigg]$$
+
+Así, sustituyendo las derivadas en la ecuación
+
+$$\frac{d^{2}u_{1}}{dr^{2}}+\bigg[ k^{2}-\frac{l(l+1)}{r^{2}} \bigg]u_{1}=\frac{A}{kr}\bigg[-sen(kr)k+k^{2}rcos(kr)\bigg]+ \frac{2A}{kr^{3}}\bigg[ \frac{sen(kr)}{k}-cos(kr)r\bigg]$$
+$$+\frac{A}{kr}\bigg[ sen(kr)k-cos(kr)k^{2}r \bigg] -\frac{2A}{kr^{3}}\bigg[ \frac{sen(kr)}{k}-cos(kr)r \bigg]=0$$
+
+Por lo tanto se comprueba que la función es solución a la ecuación radial con $V(r)=0$ y $l=1$
+
+
+\textbf{Inciso b)}
+
+Sabemos que: $Aaj_{1}(ka)=0 \implies j_{1}(ka)=0$
+$$\implies \frac{sen(ka)-(ka)cos(ka)}{(ka)^{2}}=0$$
+$$\implies tan(ka)-ka=0$$
+$$\implies tan(ka)=ka$$
+
+o bien, como $x=ka$. Llegamos a la ecuación trascendental 
+$$tan(x)=x$$
+
+La cual graficamos en la siguiente Figura \ref{fig:ejemplo}: 
+
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=0.5\textwidth]{}
+%    \caption{Gráfica}
+%    \label{fig:ejemplo}
+%\end{figure}
+
+Notamos que para valores grandes de $N$, los valores en donde la función $tan(x)$ y la función $x$ son iguales, estos se aproximan a $x= \frac{\pi}{2}+N\pi$ que es donde la función $tan(x)$ diverge.  
+
+
+Ahora como $x=ka$, para que la ecuación trascendental sea válida, se tiene que $$ka=\frac{\pi}{2}+N\pi$$
+$$a\sqrt{\frac{2mE_{N}}{\hbar^{2}}}=\frac{\pi}{2}+N\pi$$
+$$\frac{2mE_{N}}{\hbar^{2}}=a^{-2}\pi^{2}(N+1/2)^{2}$$
+$$E_{N}=\frac{\hbar^{2}\pi^{2}}{2ma^{2}}(N +1/2)^{2}$$
+
+
+\medskip
+
+\section{Problema 11}
+
+\medskip
+\begin{tcolorbox}[colback=gray!10, colframe=black, title=Problem 11]
+
+
+A particle of mass $m$ is placed in a finite spherical well:
+
+
+$V(r)= 
+\begin{cases}
+    -V_{0}. & r\leq a; \\
+    0. & r>a
+\end{cases}
+$
+ Find the ground state, by solving the radial equation with $l=0$. Show that there
+is no bound state if $V_{0}a^{2}<\pi^{2}\hbar^{2}/8m$.
+
+
+\end{tcolorbox}
+\medskip
+
+
+\Large{\textit{\textbf{Solución:}}}
+
+\medskip
+
+
+\end{document}
